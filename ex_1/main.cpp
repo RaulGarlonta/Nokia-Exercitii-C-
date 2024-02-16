@@ -17,7 +17,7 @@ void afisareMeniu() {
     cout << "1. Adaugare student" << endl;
     cout << "2. Afisare lista studenti" << endl;
     cout << "3. Afisare studenti in ordine descrescatoare a mediei." << endl;
-    cout << "0. Iesire" << endl;
+    cout << "4. Iesire" << endl;
 }
 
 void adaugareStudent(vector<Student>& listaStudenti) {
@@ -67,16 +67,15 @@ void afisareListaStudenti(const vector<Student>& listaStudenti) {
     }
 
 }
-
-void afiseazaStudentiDupaMedie() const {
-        vector<Student> listaSortata = listaStudenti;
-        sort(listaSortata.begin(), listaSortata.end());
-
+void sortare( vector<Student> listaStudenti)
+        {
         cout << "Studentii sortati dupa medie (descrescator) si nume (alfabetic):" << endl;
-        for (const auto& student : listaSortata) {
-            cout << "Nume: " << student.getNume() << " - Medie: " << student.calculeazaMedie() << " - An: " << student.getAn() << endl;
+        for (const auto& student : listaStudenti)
+        {
+            cout << "Nume: " << student.nume << "- Anul: " << student.an << "- Medie: " << student.medie << endl;
         }
-    }
+
+}
 int main() {
     vector<Student> listaStudenti;
     int optiune;
@@ -94,8 +93,8 @@ int main() {
                 afisareListaStudenti(listaStudenti);
                 break;
             case 3:
-                afisareStudentiSupeMedie(listaStudenti);
-            case 0:
+                sortare(listaStudenti);
+            case 4:
                 cout << "Iesire";
                 break;
             default:
